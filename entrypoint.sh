@@ -10,6 +10,7 @@ function purge() {
     echo "BUCKETS is not empty"
     TAB=($(echo $BUCKETS | tr ',' "\n"))
   fi
+
   for BUCKET in "${TAB[@]}"
   do
      echo $BUCKET
@@ -21,4 +22,5 @@ function purge() {
   exit 0
 }
 
+sleep 10
 purge
