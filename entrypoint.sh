@@ -10,12 +10,11 @@ function purge() {
     echo "BUCKETS is not empty"
     TAB=($(echo $BUCKETS | tr ',' "\n"))
   fi
-echo ${TAB[0]}
-echo ${TAB[1]}
-#  for BUCKET in "${TAB[@]}"
-#  do
+  for BUCKET in "${TAB[@]}"
+  do
+     echo $BUCKET
 #    mc rm --recursive --force --older-than=$RETENTION $SRC/$BUCKET/*
-#  done
+  done
 
   echo "Purge Done"
 
