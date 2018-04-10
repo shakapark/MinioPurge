@@ -22,5 +22,10 @@ function purge() {
   exit 0
 }
 
+
+TAB1=$(mc --json ls $SRC | grep -Eo '"key":.*?[^\\]",'|awk -F':' '{print $2}' | cut -d \" -f2 | cut -d / -f1 | tr " " "\n")
+echo $TAB1
+TAB2=($(echo $BUCKETS | tr ',' "\n"))
+echo $TAB2
 sleep 10
 purge
