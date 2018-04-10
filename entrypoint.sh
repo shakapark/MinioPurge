@@ -8,7 +8,7 @@ function purge() {
   else
     IFS=';' read -ra $TAB <<< "$BUCKETS"
   fi
-
+echo $TAB
 #  for BUCKET in "${TAB[@]}"
 #  do
 #    mc rm --recursive --force --older-than=$RETENTION $SRC/$BUCKET/*
