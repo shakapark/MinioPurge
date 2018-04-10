@@ -14,7 +14,7 @@ function purge() {
   for BUCKET in "${TAB[@]}"
   do
     echo $BUCKET
-    mc rm --recursive --fake --force --older-than=$RETENTION $SRC/$BUCKET/
+    mc rm --recursive --dangerous --fake --force --older-than=$RETENTION $SRC/$BUCKET/
   done
 
   echo "Purge Done"
