@@ -3,9 +3,11 @@
 function purge() {
   echo "Starting Purge"
 
-  if ["$BUCKETS" == ""]; then
+  if [ "$BUCKETS" == "" ]; then
+    echo "BUCKETS is empty"
     TAB=$(mc --json ls $SRC | grep -Eo '"key":.*?[^\\]",'|awk -F':' '{print $2}' | cut -d \" -f2 | cut -d / -f1 | tr " " "\n")
   else
+    echo "BUCKETS is not empty"
     TAB=($(echo $BUCKETS | tr ',' "\n"))
   fi
 echo $TAB
