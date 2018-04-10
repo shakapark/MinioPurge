@@ -6,7 +6,7 @@ function purge() {
   if ["$BUCKETS" == ""]; then
     TAB=$(mc --json ls $SRC | grep -Eo '"key":.*?[^\\]",'|awk -F':' '{print $2}' | cut -d \" -f2 | cut -d / -f1 | tr " " "\n")
   else
-    IFS=';' read -ra TAB <<< "$BUCKETS"
+    TAB=($(echo $BUCKETS | tr ',' "\n"))
   fi
 echo $TAB
 #  for BUCKET in "${TAB[@]}"
