@@ -1,4 +1,4 @@
-l#!/bin/bash
+#!/bin/bash
 
 function purge() {
   echo "Starting Purge"
@@ -14,7 +14,7 @@ function purge() {
   for BUCKET in "${TAB[@]}"
   do
     echo $BUCKET
-    FILES=$(mc ls $SRC/$BUCKET)
+    FILES=$(mc ls $SRC/$BUCKET/)
     for FILE in $FILES
     do
       echo $FILE
