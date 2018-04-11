@@ -15,7 +15,7 @@ function purge() {
   do
     echo $BUCKET
     FILES=($(mc --json ls $SRC/$BUCKET/))
-    echo FILES
+    echo $FILES
     #mc rm --recursive --fake --older-than=$RETENTION $SRC/$BUCKET/
   done
 
