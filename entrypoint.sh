@@ -19,7 +19,7 @@ function purge() {
     for FILE in $FILES
     do
       FILE=($(echo $FILE  | grep -Eo '"key":.*?[^\\]",' | awk -F':' '{print $2}' | cut -d \" -f2 | tr "/ " "\n"))
-      mc rm --recursive --fake --force --older-than=$RETENTION $SRC/$BUCKET/$FILE
+      mc rm --recursive --force --older-than=$RETENTION $SRC/$BUCKET/$FILE
     done
   done
 
