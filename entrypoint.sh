@@ -14,7 +14,9 @@ function purge() {
   for BUCKET in "${TAB[@]}"
   do
     echo $BUCKET
-    mc rm --recursive --fake --older-than=$RETENTION $SRC/$BUCKET/
+    FILES=($(mc --json ls $SRC/$BUCKET/))
+    echo FILES
+    #mc rm --recursive --fake --older-than=$RETENTION $SRC/$BUCKET/
   done
 
   echo "Purge Done"
