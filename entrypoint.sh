@@ -15,8 +15,7 @@ function purge() {
   do
     echo $BUCKET
     FILES=$(mc --json ls $SRC/$BUCKET/)
-# | grep -Eo '"key":.*?[^\\]",'))
-#|awk -F':' '{print $2}' | cut -d \" -f2 | tr "/ " "\n"))
+
     for FILE in $FILES
     do
       FILE=($(echo $FILE  | grep -Eo '"key":.*?[^\\]",' | awk -F':' '{print $2}' | cut -d \" -f2 | tr "/ " "\n"))
